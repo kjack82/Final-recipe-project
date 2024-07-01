@@ -1,0 +1,81 @@
+body {
+    font-family: cursive;
+    font-size: large;
+    background-color: #E6E6FA;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h3 {
+    color: black;
+}
+
+
+h1 {
+    text-align: center; /* Horizontally center the text */
+    line-height: 100px; /* Adjust line-height to match container height for vertical centering */
+    height: 100px; /* Specify the height of the container */
+    font-size: 4.5vw; /*Makes the title responsive*/
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.recipe {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 3px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.recipe img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.grid-container {
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); Three columns with equal width */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px; /* Adjust spacing between grid items */
+    background: transparent;
+  }
+
+button {
+    background-color: #5F9EA0;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
