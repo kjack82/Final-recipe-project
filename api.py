@@ -6,6 +6,7 @@ from typing import List ## use this to import List from typing module.
 # from main import Recipes, UpdateRecipes ## import models from the main page. 
 from fastapi.staticfiles import StaticFiles
 
+
 app = FastAPI()  ## app to run using fastapi - is required for FastApi to run. 
 templates = Jinja2Templates(directory="templates")
 
@@ -29,15 +30,16 @@ async def get_recipes(request: Request):  #function created, no arguements requi
 
 @app.post("/add_recipe/")
 async def add_recipe(name: str = Form(...), category: str = Form(...), prep_time: int = Form(...), rating: float = Form(...), url: str = Form(...), image_url: str = Form(...)):
+    print(f"Received data: name={name}, category={category}, prep_time={prep_time}, rating={rating}, url={url}, image_url={image_url}")
     conn = get_db_connection()
-    c = conn.cursor() ## Below execute adds information to the following fields 
+    c = conn.cursor()
     c.execute('''
         INSERT INTO recipes (name, category, prep_time, rating, url, image_url)
         VALUES (?, ?, ?, ?, ?, ?)
     ''', (name, category, prep_time, rating, url, image_url))
     conn.commit()
     conn.close()
-    return JSONResponse({"status": "Recipe Successfully Added"})# returns recipe response. As per below, simple conversion as no changes being made. 
+    return JSONResponse({"status": "Recipe Successfully Added"})
 
 # @app.get("/recipes/{recipe_id}", response_model=Recipes)  
 # async def get_recipe(id: int ): # = Path(..., description="The ID of the recipe you want to view"))
