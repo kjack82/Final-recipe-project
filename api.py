@@ -1,4 +1,5 @@
-from fastapi import FastAPI, Request, Form ## need to import this when using FastApi and as will have HTTP exceptions, this needs to be imported too. 
+from fastapi import FastAPI
+from fastapi import Request, Form ## need to import this when using FastApi and as will have HTTP exceptions, this needs to be imported too. 
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 import sqlite3  ## as using sqlite3
@@ -41,65 +42,6 @@ async def add_recipe(name: str = Form(...), category: str = Form(...), prep_time
     conn.close()
     return JSONResponse({"status": "Recipe Successfully Added"})
 
-# @app.get("/recipes/{recipe_id}", response_model=Recipes)  
-# async def get_recipe(id: int ): # = Path(..., description="The ID of the recipe you want to view"))
-#     conn = get_db_connection()
-#     c = conn.cursor()
-#     c.execute('SELECT * FROM recipes WHERE id = ?', (recipe_id,))
-#     recipe = c.fetchone()
-#     conn.close()
-#     if recipe_id is None:
-#         raise HTTPException(status_code=404, detail="Recipe not found") #error message raised 
-#     return dict(recipe) #simple convertion to a dictionary required, as no changes are being made. 
-
-
-# @app.get("/search_recipe", response_model=List[Recipes]) ##get function to search by name 
-# async def get_recipe_by_search(request: Request, search: str = Query("", alias="search")):
-#     conn = get_db_connection()
-#     c = conn.cursor()
-    
-#     if search: 
-#         query = f"%{search}%"
-#         c.execute("SELECT * FROM recipes WHERE name = LIKE ?' OR category LIKE ?", (query, query))
-#     else:
-#         c.execute("SELECT * FROM recipes")
-        
-#     recipes = c.fetchall()
-#     conn.close()
-#     return templates.TemplateResponse("index.html", {"request": request, "recipes": recipes})
-
-    # if not recipes: ##if no recipe
-    #     raise HTTPException(status_code=404, detail="No recipe matching this name") ##raise exception 
-    # return [dict(recipe) for recipe in recipes] ##returns dictionary response 
-    
-
-# @app.post("/recipes/{recipe_id}", response_model=Recipes) ##update receipe 
-# async def update_recipe(request: Request, recipe_id: int, name: str = Form(...), category: str = Form, prep_time: int = Form, rating: float = Form, url: str = Form, image_url: str = Form):
-#     conn = get_db_connection()
-#     c = conn.cursor()
-#     c.execute('UPDATE items SET name = ?, category = ?, prep_time = ?, rating = ?, url = ?, image_url = ?ecipes WHERE id = ?',(name, category, prep_time, rating, url, image_url)) 
-#     if c.rowcount == 0:
-#         raise HTTPException(status_code=404, detail="Unable to find recipe")
-#     conn.commit()
-#     c.execute("SELECT * FROM recipes")
-#     recipes = c.fetchall()
-#     conn.close
-    
-    
-#     recipe = c.fetchone()
-#     if recipe is None: #if no recipe
-#         conn.close()
-#         raise HTTPException(status_code=404, detail="Recipe not found") #raise exception 
-
-#     updated_data = {key: value for key, value in update.dict().items() if value is not None}
-#     set_clause = ", ".join([f"{key} = ?" for key in updated_data.keys()])
-#     c.execute(f'UPDATE recipes SET {set_clause} WHERE id = ?', (*updated_data.values(), recipe_id))
-#     conn.commit()
-#     conn.close()
-#     return {**dict(recipe), **updated_data} ##this is used to merge two dictionaries. dict(recipe) relates to original db, updated data them updated info. Will allow an updated version 
-# #cnverts row (recipe) to a disctionary. ** used to open the key value pairsnthen creates a new dictionary whilst merging the two. 
-
-
 @app.delete("/delete_recipe/{recipe_id}")
 async def delete_recipe(recipe_id: int):
     conn = get_db_connection()
@@ -109,3 +51,51 @@ async def delete_recipe(recipe_id: int):
     conn.close() #close connection 
     return JSONResponse({"status": "Recipe successfully deleted"})
 
+@app.get("/recipes/{recipe_id}", response_class=HTMLResponse)
+async def get_recipe(recipe_id: int, request: Request):
+    conn = get_db_connection()
+    c = conn.cursor()
+    c.execute('SELECT * FROM recipes WHERE id=?', (recipe_id,))
+    recipe = c.fetchone()
+    conn.close()
+    # Render edit form
+    edit_form = f"""
+        <form id="edit-form-{recipe_id}" hx-put="/recipe/{recipe_id}" hx-target="#recipe-{recipe_id}" hx-swap="outerHTML">
+            <label>Name:</label>
+            <input type="text" name="name" value="{'name'}">
+            <label>Category:</label>
+            <input type="text" name="category" value="{'category'}">
+            <label>Prep Time (minutes):</label>
+            <input type="number" name="prep_time" value="{'prep_time'}">
+            <label>Rating (out of 10):</label>
+            <input type="number" name="rating" value="{'rating'}">
+            <label>Link to website:</label>
+            <input type="url" name="url" value="{'url'}">
+            <label>Image URL:</label>
+            <input type="url" name="image_url" value="{'image_url'}">
+            <button type="submit">Save changes to recipe</button>
+        </form>
+    """
+    return HTMLResponse(content=edit_form, status_code=200)
+
+
+@app.put("/recipes/{recipe_id}", response_class=HTMLResponse)
+def update_item(recipe_id: int, request: Request):
+    conn = get_db_connection()
+    c = conn.cursor()
+    name = request.form.get('name')
+    category = request.form.get('category')
+    prep_time = request.form.get('prep_time')
+    rating = request.form.get('rating')
+    url = request.form.get('url')
+    image_url = request.form.get('image_url')
+    
+    c.execute('''
+            UPDATE recipes
+            SET name=?, category=?, prep_time=?, rating=?, url=?, image_url=?
+            WHERE id=?
+            ''', (name, category, prep_time, rating, url, image_url))
+    conn.commit()
+    conn.close()
+    return {"message": "Recipe updated successfully"}
+    

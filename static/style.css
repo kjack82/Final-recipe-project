@@ -10,12 +10,11 @@ h1, h3 {
     color: black;
 }
 
-
 h1 {
     text-align: center; /* Horizontally center the text */
-    line-height: 100px; /* Adjust line-height to match container height for vertical centering */
-    height: 100px; /* Specify the height of the container */
-    font-size: 4.5vw; /*Makes the title responsive*/
+    line-height: 200px; /* Adjust line-height to match container height for vertical centering */
+    height: 200px; /* Specify the height of the container */
+    font-size: 4.5vw; 
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
@@ -25,11 +24,11 @@ h1 {
 .recipe {
     width: 100%;
     max-width: 300px;
-    margin: 10px;
-    padding: 10px;
-    border: 3px solid #ddd;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    border: 5px solid grey;
+    background-color: white;
+    box-shadow: 0 8px 8px black;
     border-radius: 4px;
     text-align: center;
 }
@@ -37,16 +36,17 @@ h1 {
 .recipe img {
     max-width: 100%;
     height: auto;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid black;
     margin-bottom: 10px;
 }
 
 .grid-container {
     display: grid;
-    /* grid-template-columns: repeat(3, 1fr); Three columns with equal width */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px; /* Adjust spacing between grid items */
+    grid-gap: 40px; /* Adjust spacing between grid items */
     background: transparent;
+    justify-content: space-around;
+    margin: 20px;
   }
 
 button {
@@ -56,10 +56,6 @@ button {
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
 }
 
 form {
@@ -72,7 +68,7 @@ form label {
 }
 
 form input {
-    width: 100%;
+    width: 40%;
     padding: 8px;
     margin-top: 5px;
     margin-bottom: 10px;
