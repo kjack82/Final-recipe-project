@@ -19,3 +19,5 @@
 #     url: Optional[str]  
 #     image_url: Optional[str]  
     
+    
+    #### commented this out as not required for coding for a static page when using htmx. However 

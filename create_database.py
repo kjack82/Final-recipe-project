@@ -38,6 +38,16 @@ initial_data = [
     ("Slowcoooker Cottage Pie", "Dinner", 7, 9, "https://www.instagram.com/p/C3F-6pQov9e/", "https://richanddelish.com/wp-content/uploads/2022/04/Shepherds-pie-with-cheese-768x1024.jpg"),
     ("Frozen Berry Breakfast Crumble", "Breakfast", 40, 9, "https://www.instagram.com/p/C4U8d0kIXog/", "https://media.istockphoto.com/id/1324086905/photo/berry-fruit-crumble-pie-crumble-fruit-crumble-cobbler-cherry-crumble-berry-fruit-crumb-tart.webp?b=1&s=170667a&w=0&k=20&c=thDqzsROS72OXr23OjgcWdWkfAlB3amC1CMqKepRVeE="),
     ("Chilli & Lentil Hot Pot", "Dinner", 25, 9, "https://lucyandlentils.co.uk/recipe/chilli-lentil-hot-pot", "https://lucyandlentils.co.uk/wp-content/uploads/2018/11/IMG_8116-1080x1620.jpg")
+    ("Biscoff Sticky Toffee Pudding", "Dessert", 60, 9, "https://www.janespatisserie.com/2024/06/30/biscoff-sticky-toffee-pudding/", "https://www.janespatisserie.com/wp-content/uploads/2024/06/BiscoffStickyToffeePudding7-2-533x800.jpg"),
+    ("Mini Lemon & Raspberry Cheesecake", "Dessert", 180, 9.5, "https://www.janespatisserie.com/2022/08/19/mini-lemon-raspberry-cheesecakes/", "https://www.janespatisserie.com/wp-content/uploads/2022/08/MiniLemonRaspberryCheesecakes10-2.jpg"),
+    ("Pistachio & Roasted Strawberry Cake with Salted Honey Whip", "Dessert", 60, 8.5, "https://www.recipebyrosie.com/post/pistachio-and-roasted-strawberry-cake-with-salted-honey-whip", "https://static.wixstatic.com/media/037750_fb9b39b193394464b5b617d52b597750~mv2.png/v1/fill/w_723,h_1093,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/037750_fb9b39b193394464b5b617d52b597750~mv2.png"),
+    ("Blueberry Coconut Cake", "Dessert", 80, 9, "https://www.recipebyrosie.com/post/blueberry-coconut-cake", "https://www.recipebyrosie.com/post/blueberry-coconut-cake", "https://static.wixstatic.com/media/037750_6a3e100c8e3744d0ad5db26950cb5e47~mv2.jpg/v1/fill/w_723,h_1085,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/037750_6a3e100c8e3744d0ad5db26950cb5e47~mv2.jpg"),
+    ("Potato, Salmon & Leek Bake", "Dinner", 60, 8, "https://www.instagram.com/p/C4gSi9CoC30/", "https://drizzleanddip.com/wp-content/uploads/2020/10/O6A2001.jpg"),
+    ("Veggie Broth with Orecchiette", "Lunch", 30, 9, "https://www.deliciouslyella.com/en-us/recipes/nourishing-veggie-broth-with-orecchiette/", "https://images.ctfassets.net/8ffyq0lxv9d2/3GklGaNHaLtdzoc3v9ZuoT/b3e9801502b07b8a849f88f19eb9b0d5/__Safia_Shakarchi_-_Deliciously_Ella_-_17.01.2024_-_14.jpg"),
+    ("No Layer Gnocci Lasagne", "Dinner", 80, 9, "https://www.instagram.com/p/C0hgIbyIUVP/", "https://myriadrecipes.com/wp-content/uploads/2024/01/Gnocchi-Lasagne-with-Gochujang-3.png"),
+    ("Chicken & Chorizo Paella", "Dinner", 60, 9.5, "https://www.bbcgoodfood.com/recipes/chicken-chorizo-paella", "https://cookingformysoul.com/wp-content/uploads/2023/01/chicken-chorizo-paella-6-min.jpg"),
+    ("Brownie Donuts", "Dessert", 60, 10, "https://www.janespatisserie.com/2022/04/25/bronuts/", "https://www.janespatisserie.com/wp-content/uploads/2022/04/Bronuts1-2.jpg"),
+    ("Greek Chicken & Lemon Potato Platter", "Dinner", 45, 9, "https://www.instagram.com/p/C7MyGuzowLN/", "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2023/06/Greek-Lemon-Chicken-5.jpg")
 ]
 
 try:

@@ -1,13 +1,14 @@
-body {
-    font-family: cursive;
-    font-size: large;
+body {  /*body of whole webpage*/
+    font-family: cursive; /*italic style */
+    font-size: large; 
     background-color: #E6E6FA;
     margin: 0;
-    padding: 20px;
+    padding: 20px; /* can use inspect to work out best margin, padding etc*/
 }
 
-h1, h3 {
-    color: black;
+h1, h3 { /*headings*/
+    color:rgb(46, 0, 130);
+    text-shadow: #5F9EA0;
 }
 
 h1 {
@@ -15,10 +16,9 @@ h1 {
     line-height: 200px; /* Adjust line-height to match container height for vertical centering */
     height: 200px; /* Specify the height of the container */
     font-size: 4.5vw; 
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
+    font-optical-sizing: auto; /*optical sizing means font can still be read with different screen sizes, can only be used with certain fonts*/
+    font-weight: 300; /*used for thickness of the font,*/
+    font-variation-settings: "wdth" 100; /*can be used when want to control variable fonts, or aspects lik optical sizing*/
 }
 
 .recipe {
@@ -26,40 +26,41 @@ h1 {
     max-width: 300px;
     margin: 20px;
     padding: 20px;
-    border: 5px solid grey;
-    background-color: white;
-    box-shadow: 0 8px 8px black;
+    border: 5px solid grey; /* border around recipe card*/
+    background-color: white; 
+    box-shadow: 0 8px 8px black; /*shadow around the border, in terms of thickness and colour*/
     border-radius: 4px;
-    text-align: center;
+    text-align: center; /* aligns text within recipe boz to centre*/
 }
 
 .recipe img {
     max-width: 100%;
     height: auto;
-    border-bottom: 2px solid black;
+    border: 2px solid black;
     margin-bottom: 10px;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /*will repeat columns in grid ayout and adjust depending on the amount of space available, a bigger screen, more columns v less for small screen
     grid-gap: 40px; /* Adjust spacing between grid items */
     background: transparent;
-    justify-content: space-around;
+    justify-content: space-around; /* control alignment between items inside flex container when all space not necessarily used up*/
     margin: 20px;
+    grid-gap: 30px; /*spacing between items within the grid container*/
   }
 
-button {
+button { /*styling for buttons, both dit and delete*/
     background-color: #5F9EA0;
-    color: white;
+    color: white; /*relates to text within the buttons*/
     border: none;
-    padding: 10px;
+    padding: 15px;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: pointer
 }
 
 form {
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 form label {
@@ -67,11 +68,11 @@ form label {
     margin-top: 10px;
 }
 
-form input {
-    width: 40%;
+form input { /*relates to the form itself*/
+    width: 40%; /*width 40th of the screen*/
     padding: 8px;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 3px solid #ccc;
     border-radius: 4px;
 }

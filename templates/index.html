@@ -22,6 +22,7 @@
             <br>
             <button hx-delete="/delete_recipe/{{ recipe['id'] }}" hx-swap="outerHTML">Delete</button>
             <button hx-get="/recipes/{{ recipe.id }}" hx-target='#edit-recipe-form' hx-swap="outerHTML">Edit</button>
+            <div id="message"></div>
         </div>
         {% endfor %}
     </div>
@@ -60,5 +61,6 @@
         <br>
         <button type="submit">Add Recipe</button>
     </form>
+    <div id="message"></div>
 </body>
 </html>
